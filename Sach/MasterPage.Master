@@ -1,0 +1,41 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Sach.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+            <div class="conatiner">
+                <div class="container-navbar" style="padding: 10px 20px; display: flex; align-items: center; justify-content: center">
+                    <asp:HyperLink ID="HyperLink1" NavigateUrl="~/product.aspx" runat="server">Danh Sach San Pham</asp:HyperLink>
+                </div>
+                <div class="container-menu">
+                    <div class="container-left" style="display: flex; flex-direction:column;">
+                        <h1 style="margin-left: 80px;">Danh Muc</h1>
+                         <asp:DataList ID="DataList1" runat="server">
+                            <ItemTemplate>
+                                <div class="btn-content" style="display: flex;  align-items: center; justify-content: center;">
+                                    <asp:LinkButton CssClass="btn" ID="LinkButton1" runat="server" Text='<%# Eval("TenLoaiSP") %>' CommandArgument='<%# Eval("MaLoaiSP") %>' OnClick="LinkButton1_Click" ></asp:LinkButton>
+                                </div>
+                            </ItemTemplate>
+                    </asp:DataList>
+                    </div>
+                    <div class="container-center" >
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                    </div>
+                    <div class="container-right">
+                        <asp:Login ID="Login1" runat="server" OnAuthenticate="Login1_Authenticate1"></asp:Login>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </body>
+    </html>
+ 
